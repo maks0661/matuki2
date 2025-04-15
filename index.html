@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фильтр матов</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            resize: vertical;
+            min-height: 100px;
+        }
+        .filtr {
+            margin-top: 15px;
+            padding: 10px;
+            background: #f9f9f9;
+            border: 1px dashed #ccc;
+            border-radius: 4px;
+            white-space: pre-wrap;
+        }
+        .pupupu {
+            color: #d9534f;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>матюки ай-ай-ай. powered by Make, speciall for Vovo4ka</h1>
+        <p>маты на *** вертел</p>
+        
+        <textarea id="slovo" placeholder="'пиздец' или 'сука'"></textarea>
+        
+        <div class="filtr" id="filtrslovo">тута будет отфильтрованный текст</div>
+        <p id="pupupu" class="pupupu" style="display: none;">Володя, специально для тебя, чтобы ты видел сколько приходится писать для такого счастья на js. А теперь представь, сколько ты всрешь времени в все такое счастье, пост та один не бывает, их сотни, а то и миллионы. Если даже посты храняться в определенном месте, для этого определенного места и нужно будет делать еще дополнительную фильтрацию. И как ты видишь, отбор по корням, как ты и говорил, конечно работает, базару ноль, но это дико не удобно, так как русский человек найдет как выпутаться из такой ситуации. Но! Володя, правда идея прикольная у тебя, чтобы делать фильтрацию по корням, но тот вариант, который мне предлагал, доказывая js но делая на python, пупупу, хуй в говне Володя, ХЫХЫХХЫХЫХЫХХЫХЫХХЫХЫХЫХЫХЫЫ. Картинка так, для души, js не такой уж и большой получился, но зато какой, красивый и пиздаиый! И еще раз, ХЫХЫХЫХЫХЫХЫХЫ<img src="img/make.png"></p>
+    </div>
+
+    <script>
+        const inputText = document.getElementById('slovo');
+        const outputText = document.getElementById('filtrslovo');
+        const warning = document.getElementById('pupupu');
+        
+        const badWordsRegex = /пизд|ху[йияю]|еб[а@у]|бля|сук|муда|гандо|залу|шлюх|хер/ui;
+
+        function filterText(text) {
+            const hasProfanity = badWordsRegex.test(text);
+            warning.style.display = hasProfanity ? 'block' : 'none';
+            
+            return text.replace(badWordsRegex, '***');
+        }
+
+        inputText.addEventListener('input', (e) => {
+            const text = e.target.value;
+            outputText.textContent = filterText(text);
+        });
+    </script>
+</body>
+</html>
