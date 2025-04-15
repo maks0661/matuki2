@@ -61,7 +61,7 @@
         const outputText = document.getElementById('filtrslovo');
         const warning = document.getElementById('pupupu');
         
-        const badWordsRegex = /пизд|ху[йияю]|еб[а@у]|бля|сук|муда|гандо|залу|шлюх|хер/ui;
+        const ploxieslova = /пизд|ху[йияю]|еб[а@у]|бля|сук|муда|гандо|залу|шлюх|хер/ui;
 
         function filterText(text) {
             const hasProfanity = badWordsRegex.test(text);
